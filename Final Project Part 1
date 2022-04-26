@@ -1,0 +1,19 @@
+# Brian H. and Rudy F.
+
+import statistics
+
+Nums = []
+
+for i in range (0,10):
+    x = float(input("Enter an integer: "))
+    Nums.append(x)
+
+print (Nums)
+
+x = statistics.stdev(Nums)
+
+print(x)
+if x <= 1:
+    print("COMFY")
+else:
+    print("NOT COMFY")
