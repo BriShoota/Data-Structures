@@ -1,0 +1,53 @@
+#Rudy F. and Brian H.
+
+CODE = {'A': '.-',     'B': '-...',   'C': '-.-.', 
+        'D': '-..',    'E': '.',      'F': '..-.',
+        'G': '--.',    'H': '....',   'I': '..',
+        'J': '.---',   'K': '-.-',    'L': '.-..',
+        'M': '--',     'N': '-.',     'O': '---',
+        'P': '.--.',   'Q': '--.-',   'R': '.-.',
+        'S': '...',    'T': '-',      'U': '..-',
+        'V': '...-',   'W': '.--',    'X': '-..-',
+        'Y': '-.--',   'Z': '--..',
+         
+        '0': '-----',  '1': '.----',  '2': '..---',
+        '3': '...--',  '4': '....-',  '5': '.....',
+        '6': '-....',  '7': '--...',  '8': '---..',    
+        '9': '----.'
+        }
+
+def word_to_morse(word):
+    encrypt = ''
+    for letter in word:
+        if letter != ' ':
+            encrypt += CODE[letter] + ' '
+        else:
+            encrypt += ' '
+    return encrypt
+
+def decode(word):
+    word += ' '
+    decrypt = ''
+    single = ''
+    for letter in word:
+        if (letter != ' '):
+            i = 0
+            single += letter
+        else:
+            decrypt += list(CODE.keys())[list(CODE.values()).index(single)]
+            single = ''
+    return decrypt
+
+def isPalindrome(result):
+    result = result.lower().replace(' ','')
+    return result == result[::-1]
+
+word = input("Type in a word or sentence: ")
+result = word_to_morse(word.upper())
+print(result)
+ans = isPalindrome(result)
+print(ans)
+if ans:
+    print("YES")
+else:
+    print("NO")
